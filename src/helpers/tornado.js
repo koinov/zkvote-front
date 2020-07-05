@@ -503,6 +503,21 @@ async function sendVote({ deposit, votingId, optionNumber, address, relayerURL =
     await web3.eth.sendTransaction({from: from ? from : ownerAccount, to, value, gas : 2e6 })
   }
 
+/**
+ * Create voting
+ */
+async function createVoting(optionsNumber, nominationValue ) {
+    const votingId = await voting.methods.votingsCounter().call()
+    await voting.methods.createVoting(optionsNumber, nominationValue).send({ from: senderAccount, gas: 2e6 })
+    return parseInt(votingId);
+}
+
+
+async function getVotingsCounter() {
+    const votingId = await voting.methods.votingsCounter().call()
+    return parseInt(votingId);
+}
+
 
 module.exports = {
     init,
@@ -514,5 +529,7 @@ module.exports = {
     sendVote,
     getBallotInfo,
     addNewAccount,
-    topupAccount
+    topupAccount,
+    createVoting,
+    getVotingsCounter
 }

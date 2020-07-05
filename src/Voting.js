@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 
 import Box from '@material-ui/core/Box';
 import Card from '@material-ui/core/Card';
+import Link from '@material-ui/core/Link';
 
 import SelectAccount from "./components/SelectAccount";
 import BallotsTable from "./components/BallotsTable";
@@ -174,7 +175,7 @@ const Voting  = (props) => {
         </Modal>
         <Box my={4}>
           <Typography variant="h4" component="h1" gutterBottom>
-            ZKVote 
+                <Link href="/">ZKVote</Link> 
           </Typography>
         {/*
         <Typography variant="h5" component="h2" >
@@ -182,7 +183,7 @@ const Voting  = (props) => {
         </Typography>
         */}
 
-        <Typography variant="h6" component="h4" >
+        <Typography variant="h6" component="h2" >
             Select an account
         </Typography>
 
